@@ -1,7 +1,9 @@
 import { httpBatchLink } from '@trpc/client';
 import { createTRPCNext } from '@trpc/next';
 import { ssrPrepass } from '@trpc/next/ssrPrepass';
-import type { AppRouter } from '../pages/api/trpc/[trpc]';
+
+import type { AppRouter } from '~/server/routers/app';
+import { transformer } from '~/utils/transformer';
 
 function getBaseUrl() {
   if (typeof window !== 'undefined') {
@@ -25,10 +27,12 @@ export const trpc = createTRPCNext<AppRouter>({
       links: [
         httpBatchLink({
           url: getBaseUrl() + '/api/trpc',
+          transformer,
         }),
       ],
     };
   },
   ssr: true,
   ssrPrepass,
+  transformer,
 });

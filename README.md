@@ -1,6 +1,13 @@
-# Next.js + tRPC
+# Next.js + tRPC + Drizzle
 
-This example shows how you can make a typed query using a minimal implementation of tRPC following [`this as a reference`](https://trpc.io/docs/client/nextjs).
+This is a starter project for a Next.js + tRPC + Drizzle stack. It includes an example
+of a react server component and a client component using tanstack query/trpc integration hooks.
+
+It's built on top of the following examples:
+- [TRPC Next Minimal Starter Example](https://github.com/trpc/trpc/tree/next/examples/next-minimal-starter)
+- [TRPC Next 13 App POC](https://github.com/devietti/trpc-next13-app)
+
+And initialized with user models that integrate with [NextAuth.js](https://next-auth.js.org/) authentication
 
 ## Setup
 

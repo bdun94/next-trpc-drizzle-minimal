@@ -9,7 +9,9 @@
  */
 import { initTRPC } from '@trpc/server';
 
-const t = initTRPC.create();
+import { transformer } from '~/utils/transformer';
+
+const t = initTRPC.create({ transformer });
 
 /**
  * Unprotected procedure
