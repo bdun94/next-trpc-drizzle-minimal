@@ -1,11 +1,11 @@
 # Next.js + tRPC + Drizzle
 
-This is a starter project for using [Next.js](https://nextjs.org/docs) + [tRPC](https://trpc.io/docs) + [Drizzle]() as the main stack.
+This is a starter project for using [Next.js](https://nextjs.org/docs) + [tRPC](https://trpc.io/docs) + [Drizzle](https://orm.drizzle.team/docs/overview) as the main stack.
 
-It includes an example of a react server component and a client component using tanstack query/trpc integration hooks.
+It includes an example of a react server component and a client component using [react query tRPC integration](https://trpc.io/docs/client/react/setup).
 
 
-It's built on top of the following examples:
+It's built on top of the following example projects:
 - [TRPC Next Minimal Starter Example](https://github.com/trpc/trpc/tree/next/examples/next-minimal-starter)
 - [TRPC Next 13 App POC](https://github.com/devietti/trpc-next13-app)
 
@@ -13,11 +13,9 @@ and includes user models that integrate with [NextAuth.js](https://next-auth.js.
 
 ## Setup
 
-### Prerequisites
-
 ### Create a new project
 
-This starter project uses pnpm, to create a new project with the [create-next-app CLI](https://nextjs.org/docs/pages/api-reference/create-next-app)
+Using pnpm as an example, create a new project with the [create-next-app CLI](https://nextjs.org/docs/pages/api-reference/create-next-app)
 
 ```bash
 pnpm dlx create-next-app --example https://github.com/bdun94/next-trpc-drizzle-minimal  $PROJECT_NAME
