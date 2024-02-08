@@ -2,14 +2,23 @@
 
 This is a starter project for using [Next.js](https://nextjs.org/docs) + [tRPC](https://trpc.io/docs) + [Drizzle](https://orm.drizzle.team/docs/overview) as the main stack.
 
-It includes an example of a react server component and a client component using [react query tRPC integration](https://trpc.io/docs/client/react/setup).
-
 
 It's built on top of the following example projects:
 - [TRPC Next Minimal Starter Example](https://github.com/trpc/trpc/tree/next/examples/next-minimal-starter)
 - [TRPC Next 13 App POC](https://github.com/devietti/trpc-next13-app)
 
-and includes user models that integrate with [NextAuth.js](https://next-auth.js.org/) authentication
+
+## Features
+
+- [Next.js](https://nextjs.org/docs) app router with [RSC](https://nextjs.org/docs/app/building-your-application/rendering/server-components) support
+- [React Query tRPC integration](https://trpc.io/docs/client/react/setup) for client components
+- Basic User models for [NextAuth.js](https://next-auth.js.org/) authentication
+- [Drizzle Kit](https://orm.drizzle.team/kit-docs/overview) convenience commands
+- [Tailwind styling](https://tailwindcss.com/)
+- [Vitest](https://vitest.dev/)
+- [ESLint](https://eslint.org/) and [Prettier](https://prettier.io/) formatting
+- Local postgres docker setup
+- Fully ESM Compatible
 
 ## Setup
 

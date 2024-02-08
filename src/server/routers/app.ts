@@ -1,6 +1,5 @@
 import { z } from 'zod';
 
-import { getUsers } from '~/server/services/user-service';
 import { publicProcedure, router } from '~/server/trpc';
 
 export const appRouter = router({
@@ -20,7 +19,7 @@ export const appRouter = router({
       };
     }),
   // 💡 Tip: Try adding a new procedure here and see if you can use it in the client!
-  getUsers: publicProcedure.query(() => getUsers()),
+  getUsers: publicProcedure.query((opts) => opts.ctx.userService.getUsers()),
 });
 
 // export only the type definition of the API

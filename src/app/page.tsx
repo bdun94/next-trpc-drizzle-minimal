@@ -1,25 +1,15 @@
-import { getUsers } from '~/server/services/user-service';
+import { services } from '~/app/_utils/service-provider';
+import { HomeBanner } from '~/app/HomeBanner';
 
 export default async function Page() {
-  const result = await getUsers();
+  const result = await services.userService.getUsers();
 
   return (
-    <main style={styles}>
-      <div>
-        <h1>Hi There</h1>
-      </div>
+    <main className="w-screen h-screen flex justify-center items-center flex-col">
+      <HomeBanner />
       {result.map((user, index) => (
         <div key={index}>{user.name}</div>
       ))}
     </main>
   );
 }
-
-const styles = {
-  width: '100vw',
-  height: '100vh',
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  flexDirection: 'column' as const,
-};
