@@ -30,7 +30,6 @@ jobs:
         node-version: '20'
         cache: 'pnpm'
     - run: pnpm install
-    - run: pnpm build --if-present
     - run: pnpm test
     - name: Test Report
       uses: dorny/test-reporter@v1
