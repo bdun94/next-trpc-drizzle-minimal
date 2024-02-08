@@ -22,7 +22,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - uses: pnpm/action-setup@2
+    - uses: pnpm/action-setup@v2
       with:
         version: 8.15.1
     - name: Use Node.js ${{ matrix.node-version }}
