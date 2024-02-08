@@ -9,7 +9,10 @@ import { defineConfig } from 'vitest/config';
 export default defineConfig({
   plugins: [react()],
   test: {
-    reporters: ['verbose'],
+    reporters: ['verbose', 'junit'],
+    outputFile: {
+      junit: './reports/test-results.xml',
+    },
     environment: 'happy-dom',
     coverage: {
       enabled: true,

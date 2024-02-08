@@ -25,10 +25,17 @@ jobs:
       with:
         version: 6.10.0
     - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v5
+      uses: actions/setup-node@v4
       with:
         node-version: '20'
         cache: 'pnpm'
     - run: pnpm install
     - run: pnpm build --if-present
     - run: pnpm test
+    - name: Test Report
+      uses: dorny/test-reporter@v1
+      if: success() || failure()    # run this step even if previous step failed
+      with:
+        name: VITEST Tests            # Name of the check run which will be created
+        path: reports/test-*.xml    # Path to test results
+        reporter: jest-junit        # Format of test results
