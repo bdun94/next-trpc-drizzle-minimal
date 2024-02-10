@@ -24,7 +24,10 @@ jobs:
     - name: Lint
       run: pnpm run lint
 
-  test-migrations:
+  test-migrations-and-build:
+    # Testing build and migrations is currently done on the same job since NextJS pre-builds server components
+    # by fetching from the DB
+
     # Containers must run in Linux based operating systems
     runs-on: ubuntu-latest
     # Docker Hub image that `container-job` executes in
@@ -71,6 +74,12 @@ jobs:
         env:
           # The hostname used to communicate with the PostgreSQL service container
           DATABASE_URL: postgres://postgres:postgres@postgres:5432/postgres
+
+      - name: Seeding database for test
+        run: pnpm seed
+
+      - name: Building application
+        run: pnpm build
 
   test:
     runs-on: ubuntu-latest
