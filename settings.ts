@@ -1,5 +1,5 @@
-import dotenv from 'dotenv';
+import { config } from 'dotenv';
 
-dotenv.config({ path: ['.env.local', '.env'] });
+config({ path: ['.env.local', '.env'] });
 
 export const DATABASE_URL = process.env.DATABASE_URL || '';

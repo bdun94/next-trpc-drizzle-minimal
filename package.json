@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "lint": "eslint --cache --ext \".js,.ts,.tsx\" src",
+    "lint": "eslint --cache --ext \".js,.ts,.tsx\" .",
+    "lint-analysis": "pnpm lint --format=@microsoft/eslint-formatter-sarif --output-file eslint-results.sarif",
     "start": "next start",
     "test": "vitest run",
     "dev-test": "vitest",
