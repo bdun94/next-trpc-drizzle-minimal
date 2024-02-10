@@ -2,11 +2,10 @@
 
 This is a starter project for using [Next.js](https://nextjs.org/docs) + [tRPC](https://trpc.io/docs) + [Drizzle](https://orm.drizzle.team/docs/overview) as the main stack.
 
-
 It's built on top of the following example projects:
+
 - [TRPC Next Minimal Starter Example](https://github.com/trpc/trpc/tree/next/examples/next-minimal-starter)
 - [TRPC Next 13 App POC](https://github.com/devietti/trpc-next13-app)
-
 
 ## Features
 
@@ -33,7 +32,6 @@ pnpm install
 ```
 
 ### Prepare local environment
-
 
 To set up a local postgres DB in docker seeded with data
 
