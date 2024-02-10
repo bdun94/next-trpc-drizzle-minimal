@@ -102,6 +102,8 @@ jobs:
   migrate:
     runs-on: ubuntu-latest
     environment: Production
+    env:
+        DATABASE_URL: '${{ secrets.DATABASE_URL }}'
     needs: [lint, test, test-migrations]
     steps:
     - uses: actions/checkout@v4
@@ -117,9 +119,5 @@ jobs:
       run: pnpm install
     - name: Running migrations in production
       run: pnpm migrate
-      env:
-        DATABASE_URL: '${{ secrets.DATABASE_URL }}'
     - name: Seeding production database for demo
       run: pnpm seed
-      env:
-        DATABASE_URL: '${{ secrets.DATABASE_URL }}'
