@@ -50,6 +50,10 @@ jobs:
           --health-timeout 5s
           --health-retries 5
 
+    env:
+          # The hostname used to communicate with the PostgreSQL service container
+          DATABASE_URL: postgres://postgres:postgres@postgres:5432/postgres
+
     steps:
       # Downloads a copy of the code in your repository before running CI tests
       - name: Check out repository code
@@ -71,9 +75,7 @@ jobs:
       - name: Running migrations
         # Runs migrations on a fresh DB table, this tests whether there are any issues with the migrations
         run: pnpm migrate
-        env:
-          # The hostname used to communicate with the PostgreSQL service container
-          DATABASE_URL: postgres://postgres:postgres@postgres:5432/postgres
+
 
       - name: Seeding database for test
         run: pnpm seed

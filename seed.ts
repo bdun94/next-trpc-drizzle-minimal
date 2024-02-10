@@ -1,12 +1,24 @@
 import chalk from 'chalk';
 
+import { DATABASE_URL } from 'settings';
 import { users } from '~/schema/user';
 import { db } from '~/server/db/client';
+
+const log = console.log;
 
 /**
  * Seed the database with data
  */
 export const seedData = async () => {
+  if (!DATABASE_URL) {
+    log(
+      chalk.redBright(
+        'The DATABASE_URL environment variable is not set, please set it before running the migrate script',
+      ),
+    );
+    process.exit(1);
+  }
+
   console.log(chalk.greenBright('Seeding data...'));
   try {
     await db
@@ -25,11 +37,11 @@ export const seedData = async () => {
       ])
       .onConflictDoNothing();
   } catch (e) {
-    console.log(chalk.redBright('Error seeding data: ', e));
+    log(chalk.redBright('Error seeding data: ', e));
     process.exit(1);
   }
 
-  console.log(chalk.greenBright('Data seeded'));
+  log(chalk.greenBright('Data seeded'));
   process.exit(0);
 };
 
