@@ -113,7 +113,7 @@ jobs:
     environment: Production
     env:
         DATABASE_URL: '${{ secrets.DATABASE_URL }}'
-    needs: [lint, test, test-migrations]
+    needs: [lint, test, test-migrations-and-build]
     steps:
     - uses: actions/checkout@v4
     - uses: pnpm/action-setup@v2
