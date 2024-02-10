@@ -21,14 +21,14 @@ const runMigrate = async () => {
     const db = drizzle(sql);
     log(chalk.greenBright('Running migrations...'));
     await migrate(db, { migrationsFolder: 'drizzle' });
-    await sql.end();
     log(chalk.greenBright('Migrations complete'));
-    process.exit(0);
   } catch (error) {
     log(chalk.redBright('Error running migrations:'), error);
     await sql.end();
     process.exit(1);
   }
+  await sql.end();
+  process.exit(0);
 };
 
 runMigrate();

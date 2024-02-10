@@ -98,3 +98,28 @@ jobs:
         name: VITEST Tests            # Name of the check run which will be created
         path: reports/test-*.xml    # Path to test results
         reporter: jest-junit        # Format of test results
+
+  migrate:
+    runs-on: ubuntu-latest
+    environment: Production
+    needs: [lint, test, test-migrations]
+    steps:
+    - uses: actions/checkout@v4
+    - uses: pnpm/action-setup@v2
+      with:
+        version: 8.15.1
+    - name: Use Node.js 20
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20
+        cache: 'pnpm'
+    - name: Install dependencies
+      run: pnpm install
+    - name: Running migrations in production
+      run: pnpm migrate
+      env:
+        DATABASE_URL: '${{ secrets.DATABASE_URL }}'
+    - name: Seeding production database for demo
+      run: pnpm seed
+      env:
+        DATABASE_URL: '${{ secrets.DATABASE_URL }}'
